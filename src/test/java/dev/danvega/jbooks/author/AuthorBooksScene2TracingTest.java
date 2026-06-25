@@ -22,7 +22,7 @@ public class AuthorBooksScene2TracingTest extends AuthorBooksTracingTestSupport 
 
     @Test
     void allAuthorsWithBooks_batchMapping_triggersBatchedQueries() {
-        // 1x authors + 1x books IN query for all 1000 authors (+ small Hibernate overhead)
+        // 1x authors + 1x books IN query for all 20 authors (+ small Hibernate overhead)
         runAuthorsWithBooksScenario("scene2-batch-mapping-all-authors", 2, 4);
     }
 }

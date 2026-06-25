@@ -21,7 +21,7 @@ public class AuthorBooksScene1TracingTest extends AuthorBooksTracingTestSupport 
 
     @Test
     void allAuthorsWithBooks_schemaMapping_triggersNPlusOneQueries() {
-        // 1x authors + 1000x books (one per author)
-        runAuthorsWithBooksScenario("scene1-schema-mapping-all-authors-n-plus-one", 1001, 1010);
+        // 1x authors + 20x books (one per author)
+        runAuthorsWithBooksScenario("scene1-schema-mapping-all-authors-n-plus-one", 21, 30);
     }
 }
