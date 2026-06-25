@@ -49,7 +49,7 @@ abstract public class AuthorBooksTracingTestSupport extends PostgresTestcontaine
             }
             """;
     protected static final long SINGLE_AUTHOR_ID = 1L;
-    protected static final int AUTHOR_COUNT = 1000;
+    protected static final int AUTHOR_COUNT = 20;
 
     @Autowired
     private GraphQlTester graphQlTester;

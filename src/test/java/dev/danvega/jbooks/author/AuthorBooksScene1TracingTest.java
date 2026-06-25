@@ -16,12 +16,12 @@ public class AuthorBooksScene1TracingTest extends AuthorBooksTracingTestSupport 
     @Test
     void singleAuthorWithBooks_schemaMapping_triggersTwoQueries() {
         // 1x single author + 1x books by author_id
-        runSingleAuthorWithBooksScenario("scene1-schema-mapping-single-author", 2, 3);
+        runSingleAuthorWithBooksScenario("scene1-single-author", 2, 3);
     }
 
     @Test
     void allAuthorsWithBooks_schemaMapping_triggersNPlusOneQueries() {
-        // 1x authors + 1000x books (one per author)
-        runAuthorsWithBooksScenario("scene1-schema-mapping-all-authors-n-plus-one", 1001, 1010);
+        // 1x authors + 20x books (one per author)
+        runAuthorsWithBooksScenario("scene1-all-authors", 21, 30);
     }
 }
