@@ -1,0 +1,21 @@
+# Activate with: spring.profiles.active=scene1,tracing (or scene2,tracing)
+# Requires Grafana LGTM: docker compose up -d grafana-lgtm
+management:
+  opentelemetry:
+    tracing:
+      export:
+        otlp:
+          endpoint: http://localhost:4318/v1/traces
+  tracing:
+    sampling:
+      probability: 1.0
+
+otel:
+  instrumentation:
+    jdbc:
+      statement-sanitizer:
+        enabled: false
+
+logging:
+  pattern:
+    correlation: "[%correlationId]"

@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: jbooks
+  profiles:
+    active: scene2
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop # create-drop drops tables on DevTools restart while the app is still running
+    show-sql: true
+    open-in-view: true
+
+  graphql:
+    graphiql:
+      enabled: true
+    schema:
+      printer:
+        enabled: true
+      introspection:
+        enabled: true
+  threads:
+    virtual:
+      enabled: true
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0 # do not enable this in the prod env

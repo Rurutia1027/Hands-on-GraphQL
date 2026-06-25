@@ -1,0 +1,59 @@
+# Operation Type (Query, Mutation, Subscription)
+# REST API R = Query
+# CUD = mutation
+# query is the we want to get information out of the schema
+# mutation is we want add or edit or delete
+# subscription is similar to a query but we keep an open connection for long point
+# support constant collect information
+type Query {
+    books : [Book!]!
+    book(id: ID!): Book!
+    search(text: String!): [SearchItem]
+    authors: [Author!]!
+    review(id: Int!): Review
+    reviews(filter: ReviewFilter): [Review]
+}
+
+type Mutation {
+    addBook(bookInput: BookInput): Book
+}
+# client -> BookInput (graphQL) server
+# client <- (graphQL) server
+# Object Types (output types)
+type Book {
+    # name of the field, type of the field
+    id: ID! # ! mean this field id cannot be null
+    title: String! # title cannot be null
+    author: Author # this is referring to another object
+}
+
+# object type
+type Author { # 1: N , N + 1  1...N (author_id) -> book -> book
+    # (1 query author db table) (1 query to the db table of book with the author id )(1 query to the db table of book with the author id )(1 query to the db table of book with the author id )(1 query to the db table of book with the author id )(1 query to the db table of book with the author id )
+    id: ID!
+    name: String!
+    books: [Book!]! # neither internal element nor the list can be null, but both can be empty
+}
+
+type Review {
+    id: ID!
+    rating: Int!
+    comment: String
+    createdAt: String!
+    reviewerName: String!
+    verified: Boolean!
+    book: Book!
+}
+
+input ReviewFilter {
+    rating: Int
+    verified: Boolean
+    reviewerName: String
+}
+
+input BookInput {
+    title: String!
+    authorId: Int!
+}
+
+union SearchItem = Author | Book
