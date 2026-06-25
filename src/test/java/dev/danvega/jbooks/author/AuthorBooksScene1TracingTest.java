@@ -12,9 +12,16 @@ import org.springframework.test.context.ActiveProfiles;
 @Tag("tracing")
 @ActiveProfiles({"scene1", "tracing", "test"})
 public class AuthorBooksScene1TracingTest extends AuthorBooksTracingTestSupport {
+
     @Test
-    void authorsWithBooks_schemaMapping_triggersNPlusOneQueries() {
-        // 1x authors + 6x books (one per author)
-        runAuthorsWithBooksScenario("scene1-schema-mapping-n-plus-one", 7, 10);
+    void singleAuthorWithBooks_schemaMapping_triggersTwoQueries() {
+        // 1x single author + 1x books by author_id
+        runSingleAuthorWithBooksScenario("scene1-schema-mapping-single-author", 2, 3);
+    }
+
+    @Test
+    void allAuthorsWithBooks_schemaMapping_triggersNPlusOneQueries() {
+        // 1x authors + 1000x books (one per author)
+        runAuthorsWithBooksScenario("scene1-schema-mapping-all-authors-n-plus-one", 1001, 1010);
     }
 }
