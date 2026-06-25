@@ -27,14 +27,14 @@ public class DataLoader implements CommandLineRunner {
 
     private void loadAuthorsAndBooks() {
         List<Author> authors = new ArrayList<>();
-        for (int i = 1; i <= 1000; i++) {
+        for (int i = 1; i <= 20; i++) {
             Author author = new Author();
             author.setName("Author " + i);
             authors.add(authorRepository.save(author));
         }
 
         for (Author author : authors) {
-            for (int i = 1; i <= 10; i++) {
+            for (int i = 1; i <= 5; i++) {
                 Book book = new Book();
                 book.setTitle("Book " + i + " of " + author.getName());
                 book.setAuthor(author);
