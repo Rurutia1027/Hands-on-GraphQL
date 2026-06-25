@@ -1,4 +1,4 @@
-# Hands-on GraphQL — N+1 with Observability
+# Hands-on GraphQL — N+1 with Observability | [![CI](https://github.com/Rurutia1027/Hands-on-GraphQL/actions/workflows/ci.yml/badge.svg)](https://github.com/Rurutia1027/Hands-on-GraphQL/actions/workflows/ci.yml)
 
 A Spring Boot GraphQL demo that reproduces the classic **N+1 query problem** on an `Author → Books` (1:N) relationship,
 compares two resolution strategies, and verifies the fix with **Hibernate SQL counting** and **Grafana Tempo distributed
