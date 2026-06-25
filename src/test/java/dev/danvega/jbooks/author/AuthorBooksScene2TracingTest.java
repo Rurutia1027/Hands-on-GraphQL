@@ -17,12 +17,12 @@ public class AuthorBooksScene2TracingTest extends AuthorBooksTracingTestSupport 
     @Test
     void singleAuthorWithBooks_batchMapping_triggersTwoQueries() {
         // 1x single author + 1x books IN query with one id
-        runSingleAuthorWithBooksScenario("scene2-batch-mapping-single-author", 2, 4);
+        runSingleAuthorWithBooksScenario("scene2-single-author", 2, 4);
     }
 
     @Test
     void allAuthorsWithBooks_batchMapping_triggersBatchedQueries() {
         // 1x authors + 1x books IN query for all 20 authors (+ small Hibernate overhead)
-        runAuthorsWithBooksScenario("scene2-batch-mapping-all-authors", 2, 4);
+        runAuthorsWithBooksScenario("scene2-all-authors", 2, 4);
     }
 }
