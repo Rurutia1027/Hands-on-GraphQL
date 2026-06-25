@@ -1,0 +1,12 @@
+spring:
+  docker:
+    compose:
+      enabled: false
+  datasource:
+    url: ${TEST_DB_URL:jdbc:postgresql://localhost:5432/jbooks}
+    username: ${TEST_DB_USERNAME:admin}
+    password: ${TEST_DB_PASSWORD:admin}
+  jpa:
+    properties:
+      hibernate:
+        generate_statistics: true
